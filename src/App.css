@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.food-container{
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+
+.food-card>*{
+  width:600px
+}

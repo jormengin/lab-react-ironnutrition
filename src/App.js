@@ -16,14 +16,19 @@ function App() {
   const handleSearch=(searchValue)=>{
       setSearchValue(searchValue)
   }
-
+const handleDelete =(food)=>{
+  const clearedCourses = [...foodList].filter(elem=> !elem.name.includes(food))
+  setFoodList(clearedCourses)
+}
   return (
     <div>
       <Search handleSearch={handleSearch}/>
       <AddFoodForm handleAddFood={handleAddFood}/>
+      <div className='food-container'>
       {foodList.filter(elem => elem.name.toLowerCase().includes(searchValue.toLowerCase())).map((elem, index) => (
-        <FoodBox food={elem}  key={elem.name+index} />
+        <FoodBox food={elem}  key={elem.name+index} handleDelete={handleDelete} />
       ))}
+      </div>
     </div>
   );
 }

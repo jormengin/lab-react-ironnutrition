@@ -2,8 +2,10 @@ import React from 'react'
 import { Card, Row, Col, Divider, Input, Button } from "antd";
 
 
-function FoodBox({food:{name,image,calories,servings}}) {
-  
+function FoodBox({food:{name,image,calories,servings}, handleDelete}) {
+  const handleDeleteFood = () => {
+    handleDelete(name)
+  }
   return (
     <div>
        <Col>
@@ -17,7 +19,7 @@ function FoodBox({food:{name,image,calories,servings}}) {
         <p>
           <b>Total Calories: {calories * servings} </b> kcal
         </p>
-        <Button type="primary" > Delete </Button>
+        <Button type="primary" onClick={handleDeleteFood} > Delete </Button>
       </Card>
     </Col> 
     </div>
